@@ -6,21 +6,15 @@ https://material.angular.io/guide/getting-started
 
 ## Material のインストールコマンド
 
-```
 ng add @angular/material
-```
 
 ## Material をひとつにまとめた module を作る
 
-```
 ng g module material
-```
 
 ## module に追加する内容 1
 
-```
 import { MatButtonModule } from '@angular/material/button';
-```
 
 imports: [] と
 exports: [] に
@@ -28,7 +22,6 @@ MatButtonModule を加える
 
 ## module に追加する内容 2
 
-```
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -50,20 +43,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-```
 
 imports: [] と
 exports: [] に
+MatButtonToggleModule,MatCardModule,MatCheckboxModule,MatDatepickerModule,MatDialogModule,MatDividerModule,MatFormFieldModule,MatGridListModule,MatIconModule,MatInputModule,MatListModule,MatMenuModule,MatNativeDateModule,MatPaginatorModule,MatProgressSpinnerModule,MatRadioModule,MatSelectModule,MatSidenavModule,MatTableModule,MatToolbarModule,MatTooltipModule を加える
 
-```
-MatButtonToggleModule,MatCardModule,MatCheckboxModule,MatDatepickerModule,MatDialogModule,MatDividerModule,MatFormFieldModule,MatGridListModule,MatIconModule,MatInputModule,MatListModule,MatMenuModule,MatNativeDateModule,MatPaginatorModule,MatProgressSpinnerModule,MatRadioModule,MatSelectModule,MatSidenavModule,MatTableModule,MatToolbarModule,MatTooltipModule
-```
+## app.module に追加する
 
-を加える
-
-## app.module に MaterialModule を追加
-
-app.module の imports に MaterialModule を追加する
+MaterialModule を imports に追加する
 
 ## Material icon のインストール
 
@@ -73,21 +60,30 @@ app.module の imports に MaterialModule を追加する
 npm install material-design-icons
 ```
 
-## 脆弱性のチェック
+## angular.json に追加
+
+"build": {"options": {"styles": [] に以下を追加
+"test": {"options": {"styles": [] にも以下を追加
 
 ```
-npm audit
+"./node_modules/material-design-icons/iconfont/material-icons.css",
 ```
 
-## 脆弱性のチェック（修整も）
+## reset.css のインストール
+
+## コマンド
 
 ```
-npm audit fix
+npm install --save reset-css
 ```
 
-（自動で修整ができない分は保留）
+"build": {"options": {"styles": [] に以下を追加
+"test": {"options": {"styles": [] にも以下を追加
 
-## その他
+```
+"./node_modules/reset-css/reset.css",
+```
 
-参考にしたサイト  
+# その他参考にしたサイト
+
 https://github.com/angular/angular-cli/issues/2662
