@@ -45,7 +45,7 @@ describe('#navigate', () => {
 });
 ```
 
-### b. 「session-strage.service.spec.ts」 を編集する
+### b. 「session-storage.service.spec.ts」 を編集する
 
 xdescribe( を describe( に戻す
 
@@ -53,12 +53,12 @@ User クラスの変数を beforeEach の上に追加
 beforeEach の中で expectedUser = createUser();
 
 ```
-let service: SessionStrageService;
+let service: SessionStorageService;
 let expectedUser: User;
 
 beforeEach(() => {
   TestBed.configureTestingModule({});
-  service = TestBed.inject(SessionStrageService);
+  service = TestBed.inject(SessionStorageService);
   expectedUser = createUser();
 });
 ```
@@ -78,8 +78,8 @@ describe('#constractor', () => {
 ```
 describe('#setItem, #getItem', () => {
   it('should set and get item', () => {
-    SessionStrageService.setItem(AppConst.STRAGE_KEY_USER, expectedUser);
-    const resultUser: User = SessionStrageService.getItem(AppConst.STRAGE_KEY_USER, new User());
+    SessionStorageService.setItem(AppConst.STORAGE_KEY_USER, expectedUser);
+    const resultUser: User = SessionStorageService.getItem(AppConst.STORAGE_KEY_USER, new User());
     expect(resultUser.userAccount).toEqual(expectedUser.userAccount);
     expect(resultUser.userName).toEqual(expectedUser.userName);
     expect(resultUser.userLocale).toEqual(expectedUser.userLocale);
@@ -92,9 +92,9 @@ describe('#setItem, #getItem', () => {
 
 describe('#removeItem', () => {
   it('should remove item', () => {
-    SessionStrageService.setItem(AppConst.STRAGE_KEY_USER, expectedUser);
-    SessionStrageService.removeItem(AppConst.STRAGE_KEY_USER);
-    expect(SessionStrageService.getItem(AppConst.STRAGE_KEY_USER, new User())).toBeNull();
+    SessionStorageService.setItem(AppConst.STORAGE_KEY_USER, expectedUser);
+    SessionStorageService.removeItem(AppConst.STORAGE_KEY_USER);
+    expect(SessionStorageService.getItem(AppConst.STORAGE_KEY_USER, new User())).toBeNull();
   });
 });
 ```

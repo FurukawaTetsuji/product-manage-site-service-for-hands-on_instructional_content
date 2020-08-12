@@ -57,8 +57,8 @@ ng g class pages/constants/api-const
 #### app-const に下記を追加
 
 ```
-// Session Strage keys
-static readonly STRAGE_KEY_USER = 'USER';
+// Session Storage keys
+static readonly STORAGE_KEY_USER = 'USER';
 ```
 
 #### url-const に下記を追加

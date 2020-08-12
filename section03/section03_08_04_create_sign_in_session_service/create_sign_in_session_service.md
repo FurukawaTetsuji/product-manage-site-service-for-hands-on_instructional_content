@@ -8,19 +8,19 @@
 コマンド
 
 ```
-ng g service core/services/session-strage
+ng g service core/services/session-storage
 ```
 
 ### a. コードを編集
 
-上記で追加した「session-strage.service.ts」に下記の public で static なメソッドを追加する
+上記で追加した「session-storage.service.ts」に下記の public で static なメソッドを追加する
 （Dependency Injection なしで使える）
 
 ```
 /**
   * Sets item
   * @template T type T as generics
-  * @param key key name of variables to save session strage
+  * @param key key name of variables to save session storage
   * @param t type T as generics
   */
 static setItem<T>(key: string, t: T): void {
@@ -30,9 +30,9 @@ static setItem<T>(key: string, t: T): void {
 /**
   * Gets item
   * @template T type T as generics
-  * @param key key name of variables to save session strage
+  * @param key key name of variables to save session storage
   * @param t type T as generics
-  * @returns variables saved in session strage
+  * @returns variables saved in session storage
   */
 static getItem<T>(key: string, t: T): T {
   return JSON.parse(sessionStorage.getItem(key)) as T;
@@ -40,7 +40,7 @@ static getItem<T>(key: string, t: T): T {
 
 /**
   * Removes item
-  * @param key key name of variables to save session strage
+  * @param key key name of variables to save session storage
   */
 static removeItem(key: string) {
   sessionStorage.removeItem(key);
@@ -77,30 +77,30 @@ export class User {
 ### a. メソッドを追加
 
 「account.service.ts」に下記の public メソッドを追加する。  
-（コンストラクタに SessionStrageService は追加しなくてよい）
+（コンストラクタに SessionStorageService は追加しなくてよい）
 
 ```
 /**
   * Gets user
-  * @returns user informations from session strage
+  * @returns user informations from session storage
   */
 getUser(): User {
-  return SessionStrageService.getItem(AppConst.STRAGE_KEY_USER, new User());
+  return SessionStorageService.getItem(AppConst.STORAGE_KEY_USER, new User());
 }
 
 /**
   * Sets user
-  * @param user infomatios to save session strage
+  * @param user infomatios to save session storage
   */
 setUser(user: User): void {
-  SessionStrageService.setItem(AppConst.STRAGE_KEY_USER, user);
+  SessionStorageService.setItem(AppConst.STORAGE_KEY_USER, user);
 }
 
 /**
   * Removes user
   */
 removeUser(): void {
-  SessionStrageService.removeItem(AppConst.STRAGE_KEY_USER);
+  SessionStorageService.removeItem(AppConst.STORAGE_KEY_USER);
 }
 ```
 
