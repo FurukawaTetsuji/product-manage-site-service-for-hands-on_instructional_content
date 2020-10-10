@@ -107,7 +107,6 @@ https://github.com/FurukawaTetsuji/product-manage-site-service-for-hands-on_html
   color: #ffffff;
   letter-spacing: 1px;
   font-size: 1.2rem;
-  box-shadow: none;
 }
 
 .sign-in-page-wrapper .flat-button:hover {
